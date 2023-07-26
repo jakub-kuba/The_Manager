@@ -3,7 +3,7 @@ Option Explicit
 
 Sub transform_data()
 
-Application.ScreenUpdating = True
+Application.ScreenUpdating = False
 
 Dim endpoint As Range
 Dim checkpoint As Range
@@ -34,7 +34,6 @@ Set current = ThisWorkbook.Worksheets("NewCurrent")
 Set NewData = ThisWorkbook.Worksheets("NewData")
 Set dictionary = ThisWorkbook.Worksheets("Dictionary")
 
-'Dictionary columns required
 Dim BusinessRuleName As String
 Dim FirstLevel As String
 Dim ID As String
@@ -56,6 +55,25 @@ Dim LevelIDLetter  As String
 Dim LevelNameLetter  As String
 Dim NumberOfLevelsLetter  As String
 Dim LevelsSkippedLetter  As String
+
+Dim first_level_cell_one As String
+Dim first_level_cell_two As String
+Dim column_two As String
+Dim column_three As String
+Dim column_three_cell_two As String
+Dim column_four As String
+Dim column_four_cell_two As String
+Dim column_minus_two As String
+Dim first_col As String
+Dim second_col As String
+Dim third_col As String
+Dim fourth_col As String
+Dim second_minus_col As String
+
+Dim group_counter As Long
+Dim group_id As Variant
+Dim new_group_id As Variant
+
 
 BusinessRuleName = "Business Rule Name"
 FirstLevel = "First Level"
@@ -172,23 +190,7 @@ Do Until ActiveCell.Value = first_level
     End If
 Loop
 
-Dim first_level_cell_one As String
-Dim first_level_cell_two As String
-Dim column_two As String
-Dim column_three As String
-Dim column_three_cell_two As String
-Dim column_four As String
-Dim column_four_cell_two As String
-Dim column_minus_two As String
-Dim first_col As String
-Dim second_col As String
-Dim third_col As String
-Dim fourth_col As String
-Dim second_minus_col As String
 
-Dim group_counter As Long
-Dim group_id As Variant
-Dim new_group_id As Variant
 
 first_level_cell_one = ActiveCell.AddressLocal(False, False)
 first_level_cell_two = ActiveCell.Offset(1, 0).AddressLocal(False, False)
